@@ -276,6 +276,8 @@ public class ContextLoader {
 			// Store context in local instance variable, to guarantee that
 			// it is available on ServletContext shutdown.
 			if (this.context == null) {
+				// 如果没有指定 ContextLoader ，则通过读取 ContextLoader.properties 文件构造默认的 ContextLoader
+				// 即 XmlWebApplicationContext
 				this.context = createWebApplicationContext(servletContext);
 			}
 			if (this.context instanceof ConfigurableWebApplicationContext) {
